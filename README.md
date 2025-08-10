@@ -1,7 +1,7 @@
 # First Install Your Machine 
 
 ```
-mkdir ~/loadtest && cd ~/loadtest
+mkdir ~/Ddos-tool-3 && cd ~/Ddos-tool-3
 ```
 ```
 python attack.py 192.0.0.1 10001
