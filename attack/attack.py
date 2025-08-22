@@ -7,14 +7,14 @@ import sys
 import os
 
 # =================== CONFIG DEFAULTS ===================
-TARGET_URL = "http://127.0.0.1"
+TARGET_URL = "https://127.0.0.1"
 THREADS = 100
 REQUESTS_PER_THREAD = 50
 DELAY = 0.001
 
 # =================== ARGUMENT INPUT ===================
 if len(sys.argv) >= 2:
-    TARGET_URL = f"http://{sys.argv[1]}"
+    TARGET_URL = f"https://{sys.argv[1]}"
 if len(sys.argv) >= 3:
     THREADS = int(sys.argv[2])
 if len(sys.argv) >= 4:
