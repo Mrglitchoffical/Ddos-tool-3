@@ -1,10 +1,4 @@
-import threading
-import requests
-import random
-import string
-import time
-import sys
-import os
+import threading,requests,random,string,time,sys,os
 
 # =================== CONFIG DEFAULTS ===================
 TARGET_URL = "https://127.0.0.1"
