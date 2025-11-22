@@ -16,38 +16,30 @@ if len(sys.argv) >= 4:
 
 # =================== HEADERS LIST ===================
 user_agents = [
+    # Windows
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0",
+
+    # MacOS
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHTML, like Gecko)",
+
+    # Linux Desktop
     "Mozilla/5.0 (X11; Linux x86_64)",
-    "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Fir>
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0)",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHT>
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML>
-    "Mozilla/5.0 (X11; Linux x86_64)",
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)>
-    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firef>
-    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, lik>
-    "Mozilla/5.0 (X11; Debian; Linux x86_64) AppleWebKit/537.36 (KHTML, lik>
-    "Mozilla/5.0 (X11; Kali; Linux x86_64) AppleWebKit/537.36 (KHTML, like >
-    "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X)",
-    "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605>
-    "Mozilla/5.0 (iPad; CPU OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KH>
-    "Mozilla/5.0 (Linux; Android 12; SM-G991B)",
-    "Mozilla/5.0 (Linux; Android 12; SM-G991B) AppleWebKit/537.36 (KHTML, l>
-    "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, li>
-    "Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-T865) AppleWebKit/537.36 (KH>
-    "Mozilla/5.0 (PlayStation 5 3.00) AppleWebKit/537.36 (KHTML, like Gecko>
-    "Mozilla/5.0 (Nintendo Switch; rv:13.0) Gecko/13.0 Firefox/13.0",
-    "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.htm>
-    "Mozilla/5.0 (compatible; Bingbot/2.0; +http://www.bing.com/bingbot.htm>
-    "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)",
-    "Opera/9.80 (Windows NT 6.1; WOW64) Presto/2.12.388 Version/12.18",
-    "Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en) AppleWebKit/534.11+ (>
-    "Mozilla/5.0 (Linux; Android 13; SM-A536E) AppleWebKit/537.36 (KHTML, l>
-    "Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko",
-    "curl/7.68.0"
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)",
+
+    # Ubuntu
+    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:120.0) Gecko/20100101 Firefox/120.0",
+
+    # Android
+    "Mozilla/5.0 (Linux; Android 12; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko)",
+    "Mozilla/5.0 (Linux; Android 13; SM-A536E) AppleWebKit/537.36 (KHTML, like Gecko)",
+
+    # iPhone / iPad
+    "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)",
+    "Mozilla/5.0 (iPad; CPU OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko)"
 ]
 
 # =================== GLOBAL STATS ===================
@@ -55,7 +47,6 @@ success_count = 0
 fail_count = 0
 lock = threading.Lock()
 start_time = time.time()
-percentage_to_down = down.down()
 
 # =================== RANDOM PATH ===================
 def generate_random_path():
@@ -101,8 +92,7 @@ def monitor():
             print(f"❌ Failed: {fail_count}")
             print(f"📊 Success Rate: {success_rate:.2f}%")
             print(f"⚡ RPS (Requests/sec): {rps:.2f}")
-            print(f"📉 Succes Rate Of Was Down Time: {success_rate:.2f}%")
-            
+        
 # =================== START ATTACK ===================
 def start_attack():
     threads = []
@@ -126,5 +116,3 @@ if __name__ == "__main__":
     print(f"Successful Requests: {success_count}")
     print(f"Failed Requests: {fail_count}")
     print(f"Total Time: {total_time:.2f} sec")
-    print(f'total Down Rate: {Down_Percentage:2f}%")
-    
